@@ -13,7 +13,7 @@ The infrastructure consists of the following components:
 
 ### AWS Architecture Diagram
 
-![AWS Architecture Diagram](architecture/my-webpage-infra.drawio)
+![AWS Architecture Diagram](architecture/my-webpage-diagram.png)
 
 ## Project Structure
 
