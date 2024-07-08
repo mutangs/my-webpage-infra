@@ -1,7 +1,7 @@
-# my-webpage-ingra
+# my-webpage-infra
 # Terraform Project for AWS Infrastructure
 
-This Terraform project sets up an AWS infrastructure including an Application Load Balancer (ALB), ECS cluster with a Fargate task, an RDS instance, and SES for email sending. This setup is designed for a web application that can be easily redeployed in different environments.
+This Terraform project sets up an AWS infrastructure including an Application Load Balancer (ALB), ECS cluster with a Fargate task, and an RDS instance. This setup is designed for a web application that can be easily redeployed in different environments.
 
 ## Architecture Overview
 
@@ -10,11 +10,10 @@ The infrastructure consists of the following components:
 - **Application Load Balancer (ALB)**: Distributes incoming web traffic to the ECS service.
 - **ECS Cluster**: Hosts the Docker containers running your web application.
 - **RDS Instance**: Provides a MySQL database for storing application data.
-- **SES**: Used for sending emails from the application.
 
 ### AWS Architecture Diagram
 
-![AWS Architecture Diagram](path/to/your/architecture-diagram.png)
+![AWS Architecture Diagram](architecture/amy-webpage-infra.drawio)
 
 ## Project Structure
 
