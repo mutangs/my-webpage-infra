@@ -60,8 +60,8 @@ resource "aws_ecs_service" "app_service" {
   desired_count   = var.desired_count
 
   network_configuration {
-    subnets         = var.subnet_ids
-    security_groups = [var.ecs_sg_id]
+    subnets          = var.subnet_ids
+    security_groups  = [var.ecs_sg_id]
     assign_public_ip = true
   }
 

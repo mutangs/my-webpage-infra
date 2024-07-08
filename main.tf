@@ -3,11 +3,11 @@ provider "aws" {
 }
 
 module "alb" {
-  source         = "./modules/alb"
-  project_name   = var.project_name
-  subnet_ids     = var.subnet_ids
-  vpc_id         = var.vpc_id
-  alb_sg_id      = var.alb_sg_id
+  source          = "./modules/alb"
+  project_name    = var.project_name
+  subnet_ids      = var.subnet_ids
+  vpc_id          = var.vpc_id
+  alb_sg_id       = var.alb_sg_id
   certificate_arn = var.certificate_arn
 }
 
