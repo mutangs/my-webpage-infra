@@ -3,8 +3,13 @@ variable "project_name" {
   type        = string
 }
 
-variable "container_image" {
-  description = "The Docker image for the container"
+variable "frontend_image" {
+  description = "The Docker image for the frontend container"
+  type        = string
+}
+
+variable "backend_image" {
+  description = "The Docker image for the backend container"
   type        = string
 }
 
