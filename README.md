@@ -21,10 +21,6 @@ This architectural pattern for this web application can be deployed in several o
 
 # Terraform Project for AWS Infrastructure
 
-
-
-# Amazon ECS with Fullstack App / DevOps Practices / Terraform Sample
-
 ## Table of Contents
 
    * [Context](#context-overview)
