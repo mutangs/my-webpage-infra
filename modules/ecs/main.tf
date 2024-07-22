@@ -30,27 +30,40 @@ resource "aws_ecs_task_definition" "app_task" {
   memory                   = var.task_memory
   cpu                      = var.task_cpu
 
-  container_definitions = jsonencode([{
-    name      = "${var.project_name}-container"
-    image     = var.container_image
-    essential = true
+  container_definitions = jsonencode([
+    {
+      name      = "${var.project_name}-frontend"
+      image     = var.frontend_image
+      essential = true
 
-    portMappings = [{
-      containerPort = 5000
-      hostPort      = 5000
-      protocol      = "tcp"
-    }]
+      portMappings = [{
+        containerPort = 80
+        hostPort      = 80
+        protocol      = "tcp"
+      }]
+    },
+    {
+      name      = "${var.project_name}-backend"
+      image     = var.backend_image
+      essential = true
 
-    environment = [
-      { name = "SES_REGION", value = var.ses_region },
-      { name = "SES_SENDER", value = var.ses_sender },
-      { name = "SES_RECIPIENT", value = var.ses_recipient },
-      { name = "DB_USER", value = var.db_user },
-      { name = "DB_PASSWORD", value = var.db_password },
-      { name = "DB_HOST", value = var.db_host },
-      { name = "DB_NAME", value = var.db_name }
-    ]
-  }])
+      portMappings = [{
+        containerPort = 5000
+        hostPort      = 5000
+        protocol      = "tcp"
+      }]
+
+      environment = [
+        { name = "SES_REGION", value = var.ses_region },
+        { name = "SES_SENDER", value = var.ses_sender },
+        { name = "SES_RECIPIENT", value = var.ses_recipient },
+        { name = "DB_USER", value = var.db_user },
+        { name = "DB_PASSWORD", value = var.db_password },
+        { name = "DB_HOST", value = var.db_host },
+        { name = "DB_NAME", value = var.db_name }
+      ]
+    }
+  ])
 }
 
 resource "aws_ecs_service" "app_service" {
@@ -67,7 +80,7 @@ resource "aws_ecs_service" "app_service" {
 
   load_balancer {
     target_group_arn = var.target_group_arn
-    container_name   = "${var.project_name}-container"
+    container_name   = "${var.project_name}-backend"
     container_port   = 5000
   }
 }
